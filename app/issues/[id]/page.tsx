@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 interface Props {
   params: { id: string };
 }
+
 const IssueDetailPage = async ({ params }: Props) => {
   const issue = await prisma.issue.findUnique({
     where: { id: parseInt(params.id) },
@@ -15,6 +16,7 @@ const IssueDetailPage = async ({ params }: Props) => {
   if (!issue) {
     notFound();
   }
+
   return (
     <div>
       <Heading>{issue.title}</Heading>
@@ -22,7 +24,7 @@ const IssueDetailPage = async ({ params }: Props) => {
         <IssueStatusBadge status={issue.status} />
         <Text>{issue.createdAt.toDateString()}</Text>
       </Flex>
-      <Card className="prose">
+      <Card className="prose" mt="4">
         <ReactMarkdown>{issue.description}</ReactMarkdown>
       </Card>
     </div>
