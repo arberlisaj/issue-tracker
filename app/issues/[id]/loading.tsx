@@ -1,11 +1,11 @@
 import { Skeleton } from "@/app/components";
 import { Box, Card, Flex } from "@radix-ui/themes";
 
-function LoadingIssueDetailPage() {
+const LoadingIssueDetailPage = () => {
   return (
     <Box className="max-w-xl">
       <Skeleton />
-      <Flex gap="3" my="2">
+      <Flex className="space-x-3" my="2">
         <Skeleton width="5rem" />
         <Skeleton width="8rem" />
       </Flex>
@@ -14,6 +14,6 @@ function LoadingIssueDetailPage() {
       </Card>
     </Box>
   );
-}
+};
 
 export default LoadingIssueDetailPage;
